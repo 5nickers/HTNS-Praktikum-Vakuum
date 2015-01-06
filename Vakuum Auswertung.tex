@@ -266,6 +266,7 @@ Die Saugrate der Drehschieberpumpe ist also $\unit[(0,9 \pm 0,03)]{l/s}$
 
 \subsubsection*{Turbomolekularpumpe}
 
+
 Um das Saugvermögen zu berechnen legen wir wieder eine Gerade durch zwei markante Punkte;
 
 \begin{figure}[h]
@@ -321,8 +322,75 @@ S_{eff} &= m \cdot V_{Rez} = 0,127 \cdot 12,1 = \unit[1,5]{l/s} \\
 \end{align*}
 
 
-Die Saugrate der Drehschieberpumpe ist also $\unit[(1,5 \pm 0,05)]{l/s}$
+Die Saugrate der Turbomolekularpumpe ist also $\unit[(1,5 \pm 0,05)]{l/s}$
 
+
+
+\subsubsection*{Theoretisches Saugvermögen der Turbopumpe}
+
+Um das theoretische Saugvermögen zu bestimmen, müssen wir die Rohrdurchmesser und Längen der einzelnen Abschnitte berücksichtigen. Zudem wissen wir aus dem Datenblatt, das die maximale Pumpleistung der Turbopump bei $\approx \unit[55]{l/s}$ liegt. Daraus erhalten wir nun:
+
+\hfill \\
+
+\begin{tabular}{c|c|c|c|c|c}
+	& Länge / cm & Durchmesser / cm & Klausius & Leitwert / l/s & 1/Leitwert / s/l \\
+	\hline 
+	&      &      &      &      &  \\
+	Schiebeventil 1 & 1,8  & 3,2  & 0,27084054 & 60,7674301 & 0,01645618 \\
+	Schiebeventil 2 & 1,8  & 3,2  & 0,27084054 & 60,7674301 & 0,01645618 \\
+	Schiebeventil 3 & 2,4  & 2,4  & 0,38571429 & 27,3821773 & 0,03652011 \\
+	Winkelstück & 15,394 & 3,6  & 0,70553244 & 26,3543786 & 0,03794436 \\
+	Flansch & 8,7  & 2,3  & 0,68101282 & 11,7381407 & 0,08519237 \\
+	Pumpe &      &      &      & 55   & 0,01818182 \\
+\end{tabular}
+
+\hfill \\
+
+Die Leitwerte werden nach folgender Formel berechnet:
+
+\begin{align*}
+c &= K'' \cdot 3,81 \cdot \sqrt{\frac{T}{M}} \cdot \frac{D^3}{L}
+\intertext{Der Klausiusfaktor $K''$ lässt sich dann so bestimmen:}
+K'' &= \frac{15 \cdot \frac{L}{D} + 12 \cdot \left( \frac{L}{D} \right)^2}{20 + 38 \cdot \frac{L}{D} + 12 \cdot \left( \frac{L}{D} \right)^2}
+\intertext{Zudem wir die Länge des gekrümmten Rohrs wie folgt umgerechnet:}
+l &= l_{ax} + 1,33 \cdot \frac{90}{180} \cdot D
+\intertext{Für das theoretische Saugvermögen ergibt sich dann:}
+S_{theo} &= \frac{1}{\sum \left( 1/Leitwert \right)} = \unit[4,755]{l/s}
+\end{align*}
+
+
+Das theoretische Saugvermögen liegt also um knapp den Faktor 4 über dem gemessenen.
+
+
+\newpage
+
+\subsubsection*{Leckraten bei laufenden Pumpen}
+
+
+Die Leckraten können wir nach folgender Formel bestimmen:
+
+\[C = \frac{P_e \cdot S_{eff}}{P_a}\]
+
+\paragraph*{Turbopumpe} 
+
+\hfill \\
+
+Für die Turbopumpe ergibt sich dann:
+
+\begin{align*}
+C &= \frac{1,5 \cdot 1,69 \cdot 10^{-4}}{1013} = \unit[2,5 \cdot 10^{-7}]{l/s}
+\end{align*}
+
+
+\paragraph*{Drehschieberpumpe} 
+
+\hfill \\
+
+Für die Drehschieberpumpe ergibt sich dann:
+
+\begin{align*}
+C &= \frac{0,9 \cdot 8 \cdot 10^{-3}}{1013} = \unit[7,1 \cdot 10^{-6}]{l/s}
+\end{align*}
 
 
 
